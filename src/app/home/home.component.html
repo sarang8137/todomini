@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <button class="btn btn-lg btn-danger" (click)="logout()">LogOut</button>
+</nav>
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-10">
+  
+          <div class="card">
+            <div class="card-header p-3">
+              <h5 class="mb-0"><i class="fas fa-tasks me-2"></i>Todo List</h5>
+            </div>
+            <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px" >
+  
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let i of pro">
+                  <tr class="fw-normal">
+                    <th>
+                      <span class="ms-2">{{i.title}}</span>
+                    </th>
+                    <td class="align-middle">
+                      <span>{{i.description}}</span>
+                    </td>
+                    <td class="align-middle">
+                      <h6 class="mb-0">{{i.date}}</h6>
+                    </td>
+                    <td class="align-middle">
+                        <button id="{{i.id}}" (click)="deletepro($event)" class="btn btn-danger">Remove</button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+  
+            </div>
+            <div class="card-footer text-end p-3">
+                <a routerLink="/add" class="btn btn-success">Add</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

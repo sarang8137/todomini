@@ -1,0 +1,28 @@
+<h1 class="text-center bg-primary">
+    Create Todo
+ </h1>
+ <div class="jumbotron">
+     <form action="" [formGroup]="proForm" (ngSubmit)="submitted()">
+         <label for="">Title</label>
+         <input type="text" class="form-control" formControlName="title" placeholder="Enter Your title">
+         <div class="alert alert-danger" *ngIf="proForm.get('title')?.invalid && proForm.get('title')?.touched">
+             Invalid title
+         </div>
+       
+         <label for="">Date</label>
+         <input type="date" class="form-control" formControlName="date" placeholder="Enter date">
+         <div class="alert alert-danger" *ngIf="proForm.get('date')?.invalid && proForm.get('date')?.touched">
+             Invalid Price
+         </div>
+         <label for="">Description</label>
+         <textarea class="form-control" formControlName="description" placeholder="Enter Description">
+         <div class="alert alert-danger" *ngIf="proForm.get('description')?.invalid && proForm.get('description')?.touched">
+             Invalid Description
+         </div>
+         </textarea>
+         <div class="text-center">
+             <button class="btn btn-success" [disabled]="proForm.invalid">ADD</button>
+         </div>
+         
+     </form>
+ </div>
